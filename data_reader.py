@@ -1,6 +1,7 @@
 import serial
 import time
 import csv
+import traceback
 
 port = '/dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller_D-if00-port0'
 #port = '/dev/ttyUSB0'
@@ -12,8 +13,8 @@ ser.flushInput()
 print(ser.name)
 
 oldline = []
-
-while True:
+a = 0
+while (a == 0):
     try:
         #ser_bytes = ser.readline()
         #decoded_bytes = float(ser_bytes[0:len(ser_bytes)-2].decode("utf-8"))
@@ -31,10 +32,14 @@ while True:
                 for item in split_line:
                     writer = csv.writer(f,delimiter=",")
                     writer.writerow([time.time(), item])
+                    print (item)
                 
         oldline = split_line
         
-    except:
+    
+    except Exception:
+        traceback.print_exc()
         print("exiting")
         #print("Keyboard Interrupt")
         break
+    
