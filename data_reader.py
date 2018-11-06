@@ -23,7 +23,7 @@ while (a == 0):
         
         
         line = ser.readline()                 # read bytes until line-ending
-        line = line.decode(encoding='UTF-8')  # convert to string
+        line = line.decode('UTF-8','ignore')  # convert to string
         #line = line.rstrip('\r\n')            # remove line-ending characters
         
         split_line = line.splitlines()
