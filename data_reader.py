@@ -30,8 +30,9 @@ while (a == 0):
         if oldline != split_line:      
             with open("test_data.csv","a") as f:
                 for item in split_line:
+                    x = datetime.datetime.now()
                     writer = csv.writer(f,delimiter=",")
-                    writer.writerow([time.time(), item])
+                    writer.writerow([x.strftime("%c"), item])
                     print (item)
                 
         oldline = split_line
