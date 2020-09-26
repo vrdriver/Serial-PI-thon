@@ -48,5 +48,5 @@ while (a == 0):
         traceback.print_exc()
         print("exiting")
         #print("Keyboard Interrupt")
-        break
+        #break doesn't quit now on error.
     
